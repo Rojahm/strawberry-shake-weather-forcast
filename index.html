@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+
+    <!-- axios here -->
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+
+    <!-- google fonts here -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img src="img/logo.png" alt="SheCodes Logo" />
+        <h1>Strawberry Shake! Weather app</h1>
+      </div>
+
+      <div class="search">
+        <form id="search">
+          <input
+            type="text"
+            placeholder="Enter name of a city"
+            class="input"
+            id="input"
+            autocomplete="off"
+            autofocus="on"
+          />
+          <input type="submit" value="Search" class="submit" />
+          <button class="submit" id="current-weather">Current</button>
+        </form>
+      </div>
+      <div class="info">
+        <div class="city">
+          <h1><span id="city"></span>, <span id="country"></span></h1>
+          <h2>
+            <span id="month"></span>
+            <span id="year"></span>
+          </h2>
+          <h2>
+            <span id="day"></span>
+            <span id="hour"></span>
+          </h2>
+          <h2 id="weather-description"></h2>
+          <h2>Feels Like: <span id="real-feel"></span></h2>
+        </div>
+        <div class="weather">
+          <div class="tempreture">
+            <div class="icon">
+              <img src="" alt="" id="icon" />
+            </div>
+            <div>
+              <h1 id="current-tempreture"></h1>
+              <h1>°</h1>
+              <h3>
+                <a href="#" id="celsius" class="celsius">C</a>
+                |
+                <a href="#" class="fahrenheit active" id="fahrenheit">F</a>
+              </h3>
+            </div>
+          </div>
+          <div class="detail">
+            <h2>Humidity:<span id="humidity"></span>%</h2>
+            <h2>Wind Speed:<span id="wind"></span></h2>
+            <h2>Pressure:<span id="pressure"></span></h2>
+          </div>
+        </div>
+      </div>
+      <div class="forecast">
+        <div class="card">
+          <div class="title"><h3>wednesday</h3></div>
+          <div class="icon">
+            <img
+              src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+              alt="icon"
+            />
+          </div>
+          <div class="tempreture">
+            <h3 id="max-temperature">11</h3>
+            <h3 id="min-temperature">10</h3>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <a href="https://github.com/Rojahm/vanilla-weather-app" target="_blank"
+          >Open-Source</a
+        >
+        <h3>SheCoded! by</h3>
+        <a href="https://github.com/Rojahm" target="_blank">Ro?a</a>
+      </div>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
