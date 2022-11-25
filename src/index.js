@@ -118,7 +118,30 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 let celsiuslink = document.querySelector("#celsius");
 celsiuslink.addEventListener("click", convertToCelsius);
 
-// function forecastTemplate() {
-//   document.querySelector("#forecast").innerHTML = "hey!";
-// }
-// forecastTemplate();
+function forecastTemplate() {
+  let forecastHtml = document.querySelector("#forecast");
+  let days = ["Sun", "Mon", "Thu", "Wed", "Thr", "Fri", "Sat"];
+  let template = "";
+  days.forEach(function (day, index) {
+    if (index < 6) {
+      template =
+        template +
+        `<div class="card">
+  <div class="title"><h3>${day}</h3></div>
+  <div class="icon">
+  <img
+  src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+  alt="icon"
+  />
+  </div>
+  <div class="tempreture">
+  <h3 id="max-temperature">11</h3>
+  <h3 id="min-temperature">10</h3>
+  </div>
+  </div>`;
+    }
+  });
+  forecastHtml.innerHTML = template;
+}
+
+forecastTemplate();
