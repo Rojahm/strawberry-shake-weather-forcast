@@ -69,7 +69,6 @@ function showTempreture(response) {
   document.querySelector("#pressure").innerHTML = Math.round(
     response.data.temperature.pressure
   );
-  // celsius = Math.round(response.data.temperature.current);
 
   city = response.data.city;
 
@@ -119,9 +118,6 @@ currentBtn.addEventListener("click", getCurrent);
 function convertToFahrenheit(event) {
   event.preventDefault();
   units = "imperial";
-  // document.querySelector("#current-tempreture").innerHTML = Math.round(
-  //   celsius * (9 / 5) + 32
-  // );
   let apiKey = "a7c7f51a8a5abc24e0tb69o4ff6018a3";
   let apiEndpoint = "https://api.shecodes.io/weather/v1/current";
   let apiUrl = `${apiEndpoint}?query=${city}&key=${apiKey}&units=${units}`;
@@ -133,7 +129,6 @@ function convertToFahrenheit(event) {
 function convertToCelsius(event) {
   event.preventDefault;
   units = "metric";
-  // document.querySelector("#current-tempreture").innerHTML = celsius;
   let apiKey = "a7c7f51a8a5abc24e0tb69o4ff6018a3";
   let apiEndpoint = "https://api.shecodes.io/weather/v1/current";
   let apiUrl = `${apiEndpoint}?query=${city}&key=${apiKey}&units=${units}`;
@@ -156,9 +151,7 @@ function formatTimestampToDay(timestamp) {
   return days[day];
 }
 function forecastTemplate(response) {
-  console.log(response.data.daily);
   let forecastDay = response.data.daily;
-  console.log(forecastDay);
   let forecastHtml = document.querySelector("#forecast");
   let template = "";
   forecastDay.forEach(function (day, index) {
