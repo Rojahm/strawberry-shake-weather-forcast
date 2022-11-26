@@ -47,7 +47,6 @@ let timestamp = null;
 let city = "";
 
 function showTempreture(response) {
-  console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.city;
   document.querySelector("#country").innerHTML = response.data.country;
   document.querySelector("#weather-description").innerHTML =
@@ -147,7 +146,7 @@ celsiuslink.addEventListener("click", convertToCelsius);
 function formatTimestampToDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Sun", "Mon", "Thu", "Wed", "Thr", "Fri", "Sat"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
 }
 function forecastTemplate(response) {
@@ -155,9 +154,8 @@ function forecastTemplate(response) {
   let forecastHtml = document.querySelector("#forecast");
   let template = "";
   forecastDay.forEach(function (day, index) {
-    // console.log("hi", day.time);
-
-    template += `<div class="card">
+    if (index < 6) {
+      template += `<div class="card">
     <div class="title"><h3>${formatTimestampToDay(day.time)}</h3></div>
     <div class="icon">
     <img
@@ -166,10 +164,11 @@ function forecastTemplate(response) {
     />
     </div>
     <div class="tempreture">
-    <h3 id="max-temperature">${Math.round(day.temperature.maximum)}</h3>
-    <h3 id="min-temperature">${Math.round(day.temperature.minimum)}</h3>
+    <h3 id="max-temperature">${Math.round(day.temperature.maximum)}°</h3>
+    <h3 id="min-temperature">${Math.round(day.temperature.minimum)}°</h3>
     </div>
     </div>`;
+    }
   });
   forecastHtml.innerHTML = template;
 }
