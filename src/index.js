@@ -100,7 +100,7 @@ function showCurrentWeather(position) {
   let apiEndpoint = "https://api.shecodes.io/weather/v1/current";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  apiUrl = `${apiEndpoint}?lon=${lon}&lat=${lat}&key=${apiKey}`;
+  apiUrl = `${apiEndpoint}?lon=${lon}&lat=${lat}&key=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(showTempreture);
 }
@@ -160,7 +160,7 @@ function forecastTemplate(response) {
     <div class="icon">
     <img
     src=${day.condition.icon_url}
-    alt="icon"
+    alt=${day.condition.icon}
     />
     </div>
     <div class="tempreture">
